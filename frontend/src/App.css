@@ -1,0 +1,169 @@
+
+
+/* Set container to a flexbox layout */
+.container {
+  display: flex;
+  gap: 25px;
+  margin-top: 20px; /* Optional: Add space from the top */
+}
+
+
+/* Center the inputSpace vertically within its container */
+.inputSpace {
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center; /* Center items vertically */
+  align-items: flex-start; /* Align items to the left */
+  gap: 15px; /* Add space between elements */
+  padding: 20px; /* Optional: Add padding for spacing */
+  height: 100%; /* Make it occupy full height of the container */
+  border: 1px solid black;
+}
+
+/* Style for the labels and inputs */
+.inputSpace label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.inputSpace input[type="text"],
+.inputSpace input[type="number"] {
+  width: 250px; /* Adjust the width of inputs */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Special styling for the 'Opis' input */
+.inputSpace input#desc {
+  height: 80px; 
+  resize: none; /* Disable resizing for consistent layout */
+}
+
+/* Add larger gaps between labels and inputs */
+.inputSpace label + input {
+  margin-top: 5px;
+}
+
+.inputSpace label:not(:first-child) {
+  margin-top: 20px; /* Larger gap between labels */
+}
+
+
+/* Set the canvas and image to have the same size */
+div.canvas-container,
+img {
+  max-width: 1100px;
+  max-height: 900px;
+  overflow: hidden;
+ 
+}
+
+/* Style for the buttons container */
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: #45a049;
+}
+
+/* Style for the text description */
+p {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+strong {
+  font-weight: bold;
+}
+
+#desc {
+  width: 250px; /* Match the width of other inputs */
+  height: 80px; /* Increase height to allow multi-line input */
+  padding: 8px; /* Add consistent padding */
+  border: 1px solid #ccc;
+  border-radius: 4px; /* Match input style */
+  font-size: 14px; /* Match the text size of other inputs */
+  resize: none; /* Prevent resizing for consistent layout */
+}
+
+/* Optional: Apply consistent styles to all input and textarea elements */
+.inputSpace input,
+.inputSpace textarea {
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+
+brush button {
+  /* Consistent button size */
+  width: 50px;       /* Small width */
+  height: 30px;      /* Small height */
+  font-size: 12px;   /* Smaller text */
+  border: none;      /* Remove default borders */
+  border-radius: 5px; /* Rounded corners */
+  margin: 5px;       /* Spacing between buttons */
+  cursor: pointer;   /* Pointer cursor for hover */
+  color: white;      /* Default text color */
+  font-weight: bold; /* Bold text */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Color customization based on button ID */
+#black {
+  background-color: black;
+}
+
+#white {
+  background-color: white;
+  color: black; /* Override text color for contrast */
+}
+
+#red {
+  background-color: red;
+}
+
+#green {
+  background-color: green;
+}
+
+#blue {
+  background-color: blue;
+}
+
+/* Hover effect for all buttons */
+.brush button:hover {
+  filter: brightness(85%);
+}
+.brush input[type="range"] {
+  margin-right: 0px; /* Add space between the input and the span */
+}
+
+.brush span {
+  display: inline-block; /* Make the span behave like a block with a fixed width */
+  width: 50px; /* Adjust this width to fit the maximum value comfortably */
+  text-align: center; /* Center the text within the span */
+}
+
+.saveButton {
+  align-self: center; /* Override parent alignment and center this element */
+  margin-top: 15px; /* Add spacing from the previous input */
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
