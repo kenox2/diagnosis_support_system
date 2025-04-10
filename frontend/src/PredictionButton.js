@@ -15,6 +15,7 @@ const PredictionButton = ({ setPredictedImage, uploadedImage, model, classes, is
             return 
           }
           
+          let token = localStorage.getItem('token');
           if(isModel){
             var formData = new FormData();
             console.log(imageFile);
@@ -23,10 +24,14 @@ const PredictionButton = ({ setPredictedImage, uploadedImage, model, classes, is
             formData.append('image', imageFile);
             formData.append('model', model);
             formData.append('class_names', classes);
+            
             try{ 
               // Send the request with the FormData
               var response = await fetch('http://localhost:8080/api/uploads/predict/own_model', {
                 method: 'POST',
+                headers: {
+                  "Authorization": `Bearer ${token}`,
+                },
                 body: formData, // Automatically sets the correct content-type for multipart/form-data
               });
               
@@ -68,6 +73,9 @@ const PredictionButton = ({ setPredictedImage, uploadedImage, model, classes, is
             try {
               const response = await fetch('http://localhost:8080/api/uploads/images/'+ uploadedImage, {
                 method: 'GET',
+                headers: {
+                  "Authorization": `Bearer ${token}`,
+                },
               });
         
               if (!response.ok) {

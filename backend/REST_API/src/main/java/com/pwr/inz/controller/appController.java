@@ -1,6 +1,7 @@
 package com.pwr.inz.controller.dto;
 
 
+import com.pwr.inz.service.AuthService;
 import com.pwr.inz.service.ImagesService;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,19 +31,23 @@ public class appController {
 
 
     private final ImagesService imagesService;
+    private final AuthService authService;
 
-    public appController(ImagesService imagesService) {
+    @Autowired
+    public appController(ImagesService imagesService, AuthService authService) {
         this.imagesService = imagesService;
+        this.authService = authService;
     }
 
 
     @PostMapping("/images")
-    public ResponseEntity<String> uploadImage(@RequestParam("file") MultipartFile file,
+    public ResponseEntity<String> uploadImage(@RequestHeader("Authorization") String authHeader,
+                                              @RequestParam("file") MultipartFile file,
                                               @RequestParam("name") String name,
                                               @RequestParam("surname") String surname,
                                               @RequestParam("description") String description,
                                               @RequestParam("age") int age) {
-
+        if(!authService.request_filter(authHeader)) return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         try {
             // Save the file to the directory
             String filePath = imagesService.saveImage(file, uploadDir, name, surname,description, age);
@@ -53,7 +58,9 @@ public class appController {
     }
 
     @PostMapping("/images_temp")
-    public ResponseEntity<String> uploadTempImage(@RequestParam("file") MultipartFile file){
+    public ResponseEntity<String> uploadTempImage(@RequestHeader("Authorization") String authHeader,
+                                                  @RequestParam("file") MultipartFile file){
+        if(!authService.request_filter(authHeader)) return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         try {
              //Save the file to the directory
             System.out.println("going into function");
@@ -68,7 +75,9 @@ public class appController {
 
 
     @GetMapping("/images/{filename}")
-    public ResponseEntity<Resource> getImage(@PathVariable String filename) {
+    public ResponseEntity<Resource> getImage(@RequestHeader("Authorization") String authHeader,
+                                             @PathVariable String filename) {
+        if(!authService.request_filter(authHeader)) return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         try {
             Path filePath = Paths.get(uploadDir + "/temp").resolve(filename);
             System.out.println("File paths is: " + filePath.toString());
@@ -87,9 +96,11 @@ public class appController {
 
 
     @PostMapping("/predict/own_model")
-    public ResponseEntity<Resource> predictCustomModel(@RequestParam("model") MultipartFile model,
+    public ResponseEntity<Resource> predictCustomModel(@RequestHeader("Authorization") String authHeader,
+                                                       @RequestParam("model") MultipartFile model,
                                                        @RequestParam("image") MultipartFile image,
                                                        @RequestParam("class_names") MultipartFile class_names){
+        if(!authService.request_filter(authHeader)) return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         try{
             Resource resource = imagesService.predictCustomModel(model, image, class_names);
             return ResponseEntity.ok().

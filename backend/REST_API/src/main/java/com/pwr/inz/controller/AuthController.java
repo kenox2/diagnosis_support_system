@@ -2,21 +2,22 @@ package com.pwr.inz.controller;
 
 import com.pwr.inz.service.AuthService;
 import com.pwr.inz.service.ImagesService;
+import com.pwr.inz.service.TokenService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/api/auth")
 public class AuthController {
 
-    private AuthService authService;
+    private final AuthService authService;
+    private final TokenService tokenService;
 
-    public AuthController(AuthService authService) {
+    public AuthController(AuthService authService, TokenService tokenService) {
         this.authService = authService;
+        this.tokenService = tokenService;
     }
 
     @PostMapping("/login")
@@ -26,10 +27,10 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                                  .body("Username or password cannot be empty");
         }
-        if(!authService.loginValidation(login, pass)){
+        String token = authService.loginValidation(login,pass);
+        if(token == null){
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
         }
-        String token = authService.generateToken(login);
         return ResponseEntity.ok(token);
     }
 
@@ -41,5 +42,7 @@ public class AuthController {
         }
         return ResponseEntity.status(HttpStatus.CONFLICT).body("Login already in use");
     }
+
+
 
 }

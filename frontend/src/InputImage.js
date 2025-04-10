@@ -45,8 +45,12 @@ const InputImage = ({fabricCanvasRef, setUploadedImage, setImageFile}) => {
           formData.append('file', file); // Append the file to the FormData object
     
           // Send the request with the FormData
+          let token = localStorage.getItem('token')
           fetch('http://localhost:8080/api/uploads/images_temp', {
             method: 'POST',
+            headers: {
+              "Authorization": `Bearer ${token}`,
+            },
             body: formData, // Automatically sets the correct content-type for multipart/form-data
           })
             .then((response) => response.text())  // Since the server returns a plain string (not JSON)

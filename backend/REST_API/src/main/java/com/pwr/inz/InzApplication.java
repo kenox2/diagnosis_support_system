@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class cd ..InzApplication {
+public class InzApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(InzApplication.class, args);

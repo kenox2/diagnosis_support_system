@@ -5,22 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c86e23-f8be-45ac-b9ca-aff405f4a827" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../REST API/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../REST API/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../REST API/images/black-dragon-at-beach.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../REST API/images/images.jfif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../REST API/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../REST API/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../REST API/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../REST API/src/main/java/com/pwr/inz/InzApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../REST API/src/main/java/com/pwr/inz/config/AppConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../REST API/src/main/java/com/pwr/inz/controller/dto/appController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../REST API/src/main/java/com/pwr/inz/infrastructure/Repos/patientRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../REST API/src/main/java/com/pwr/inz/infrastructure/entities/Patient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../REST API/src/main/java/com/pwr/inz/service/ImagesService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../REST API/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../REST API/src/test/java/com/pwr/inz/InzApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../REST_API/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../REST_API/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../REST_API/src/main/java/com/pwr/inz/InzApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../REST_API/src/main/java/com/pwr/inz/InzApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../REST_API/src/main/java/com/pwr/inz/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../REST_API/src/main/java/com/pwr/inz/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../REST_API/src/main/java/com/pwr/inz/controller/appController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../REST_API/src/main/java/com/pwr/inz/controller/appController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../REST_API/src/main/java/com/pwr/inz/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../REST_API/src/main/java/com/pwr/inz/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../REST_API/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../REST_API/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,23 +21,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2vUkB5Xi88oxvK1EvpZUmOMf1dP" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/system_diag/backend/model API",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/system_diag/backend/model API&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\system_diag\backend\model API" />
