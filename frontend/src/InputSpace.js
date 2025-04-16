@@ -24,9 +24,12 @@ const InputSpace = ({ fabricCanvasRef, firstNameRef, lastNameRef, ageRef, descri
       formData.append("surname", surname);
       formData.append("description", description);
       formData.append("age", age); // Convert age to a string for FormData
-
+      let token = localStorage.getItem('token');
       // Send the request
       fetch("http://localhost:8080/api/uploads/images", {
+          headers: {
+            "Authorization": `Bearer ${token}`,
+          },
           method: "POST",
           body: formData, // Send FormData directly
       })

@@ -1,6 +1,7 @@
 import React from "react";
 import Login from "./Login";
 import Main from "./Main";
+import SearchPage from "./search_page";
 import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
 import ProtectedRoute from "./ProtectedRoute";
 
@@ -24,6 +25,7 @@ function App(){
                 <Route path="/app" element={
                     <ProtectedRoute> <Main/> </ProtectedRoute>
                 }/>
+                 <Route path= "/search" element={<ProtectedRoute> <SearchPage/> </ProtectedRoute>}/>
                  <Route path="*" element={<LoggedInToMain />} />
             </Routes>
         </Router>
