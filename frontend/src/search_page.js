@@ -7,6 +7,14 @@ import SearchBar from "./SearchBar";
  function SearchPage(){
     const [searchStatement, setSearchStatement] = useState("");
     const [items, setItems] = useState([]);
+    const [openItems, setOpenItems] = useState({});
+
+    const toggleItem = (id) => {
+      setOpenItems((prev) => ({
+        ...prev,
+        [id]: !prev[id],
+      }));
+    };
     
     function onInput(e){
         setSearchStatement(e.target.value);
@@ -29,7 +37,8 @@ import SearchBar from "./SearchBar";
           throw new Error("Failed to fetch search results.");
         }
         const data = await response.json();
-  
+        
+        console.log("Fetched data:", data);
         // Map the backend structure to the structure expected by your list
         // e.g., the backend returns objects with properties id, name, description, imageUrl
         const formattedItems = data.map(item => ({
@@ -38,6 +47,7 @@ import SearchBar from "./SearchBar";
           description: item.description,
           image: "http://localhost:8080"+item.imageUrl 
         }));
+        console.log(formattedItems);
   
         setItems(formattedItems);
       } catch (error) {
@@ -50,7 +60,7 @@ import SearchBar from "./SearchBar";
     return(
     <>
         <SearchBar onChange = {onInput} onSubmit={handleSubmit}/>
-        <ScrollableExpandableList items={items}/>
+        <ScrollableExpandableList items={items} openItems={openItems} toggleItem={toggleItem} />
     </>
     )
  }

@@ -18,6 +18,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.UUID;
 
 @Service
 public class ImagesService {
@@ -40,8 +41,15 @@ public class ImagesService {
 
 
 
-        String fileName = file.getOriginalFilename();
-        Path filePath = uploadPath.resolve(fileName);
+        String originalFileName = file.getOriginalFilename();
+        String extension = "";
+
+        if (originalFileName != null && originalFileName.contains(".")) {
+            extension = originalFileName.substring(originalFileName.lastIndexOf("."));
+        }
+
+        String uniqueFileName = UUID.randomUUID().toString() + extension;
+        Path filePath = uploadPath.resolve(uniqueFileName);
 
         Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
         return filePath;
@@ -53,19 +61,22 @@ public class ImagesService {
      }
 
     public String saveImage(MultipartFile file, String uploadDir, String name, String surname,String description, int age) throws IOException {
-        var filePath = saveImg(file, uploadDir);
+
+
+        var patient_check = patientRepository.findByNameAndSurname(name, surname);
+        Patient patient;
+        var filePath = saveImg(file, uploadDir +"/"+ name+ "_" + surname);
         System.out.println(filePath);
         System.out.println(name);
         System.out.println(surname);
         System.out.println(description);
         System.out.println(age);
 
-
-        var patient_check = patientRepository.findByNameAndSurname(name, surname);
-        Patient patient;
         if(!patient_check.isPresent()){
             patient = new Patient(name, surname, age);
+
             patient = patientRepository.save(patient);
+
 
         }else{
             patient = patient_check.get();
@@ -73,7 +84,9 @@ public class ImagesService {
 
         Image image = new Image(patient, description, filePath.toString());
 
+
         imageRepository.save(image);
+
 
         return filePath.toString();
     }

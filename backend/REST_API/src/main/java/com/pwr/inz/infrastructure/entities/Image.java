@@ -20,8 +20,8 @@ public class Image {
     @Column(unique = true)
     private String img_path;
 
-    @Basic
-    private String classification;
+//    @Basic
+//    private String classification;
 
     public Image() {}
 
@@ -63,11 +63,11 @@ public class Image {
         this.img_path = img_path;
     }
 
-    public String getClassification() {
-        return classification;
-    }
+//    public String getClassification() {
+//        return classification;
+//    }
 
-    public void setClassification(String classification) {
-        this.classification = classification;
-    }
+//    public void setClassification(String classification) {
+//        this.classification = classification;
+//    }
 }

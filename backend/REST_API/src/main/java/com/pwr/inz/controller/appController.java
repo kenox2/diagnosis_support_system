@@ -1,4 +1,4 @@
-package com.pwr.inz.controller.dto;
+package com.pwr.inz.controller;
 
 
 import com.pwr.inz.service.AuthService;
