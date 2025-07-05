@@ -152,16 +152,17 @@ var DrawingCanvas = () => {
   
   
   return (
-    <div>
-      <h1>System wspomagania</h1>
-      
-      <InputImage
-      fabricCanvasRef={fabricCanvasRef}
-      setUploadedImage={setUploadedImage}
-      setImageFile={setImageFile}
+    <div className="bg-gray-gradient min-h-screen w-full flex flex-col">
+  <div className="flex-grow flex flex-col">
+    <div className="flex justify-start"> 
+      <img
+        src="/lupka.jpg"
+        alt="Example"
+        className="rounded-full border-2 border-blue-500 w-20 h-20 m-2 mb-4"
       />
-      {/* Add the container class to arrange the canvas and image side by side */}
-      
+    </div>
+
+    <div className="mb-2">
       <BrushControls
         fabricCanvasRef={fabricCanvasRef}
         brushSize={brushSize}
@@ -173,51 +174,76 @@ var DrawingCanvas = () => {
         setBrushColorG={setBrushColorG}
         setBrushColorB={setBrushColorB}
       />
-      
-      <div className="container">
-        <canvas
-          ref={canvasRef}
-          style={{ border: '1px solid black' }}
-        ></canvas>
-        
-        {predictedImage && (
-          <img
-            src={predictedImage}
-            alt="Predicted"
-          />
-        )}
-        
-        <InputSpace
-          fabricCanvasRef={fabricCanvasRef}
-          firstNameRef = {firstNameRef}
-          lastNameRef = {lastNameRef}
-          ageRef = {ageRef} 
-          descriptionRef = {descriptionRef}
-        />
-        
-      </div>
+    </div>
 
-      <PredictionButton
-        setPredictedImage={setPredictedImage}
-        uploadedImage={uploadedImage}
-        model={model}
-        classes={classes}
-        isModel={isModel}
-        imageFile={imageFile}
-        fabricCanvasRef={fabricCanvasRef}
-      />
-      <OwnModel
-        setModel={setModel}
-        setClasses={setClasses}
-        isModel={isModel}
-        setIsModel={setIsModel}
-        
-      />
 
-      <div>
-        <p>Use <strong>Z</strong> to Zoom In, <strong>X</strong> to Zoom Out and <strong>V</strong> to undo</p>
+    <div className="flex w-full flex-grow gap-4">
+  {/* Left Panel: Canvas or Upload */}
+  <div className="p-4 flex-grow-[3] flex items-center justify-start relative">
+    {/* Always render the canvas */}
+    <canvas
+      ref={canvasRef}
+      style={{
+        border: '1px solid black',
+        visibility: imageFile ? 'visible' : 'hidden',
+      }}
+    ></canvas>
+  </div>
+
+  {/* Middle Panel: Reserved for additional use or just empty */}
+ <div className="p-4 flex flex-col items-start justify-center h-full gap-12 w-60 mt-8 ml-6">
+  <InputImage
+    fabricCanvasRef={fabricCanvasRef}
+    setUploadedImage={setUploadedImage}
+    setImageFile={setImageFile}
+  />
+
+  <button className="cursor-pointer bg-gray-400 hover:bg-gray-500 text-white rounded-full px-10 py-5 w-full">
+    Predykcja
+  </button>
+  <button className="cursor-pointer bg-gray-400 hover:bg-gray-500 text-white rounded-full px-10 py-5 w-full">
+    Własny model
+  </button>
+  <button className="cursor-pointer bg-gray-400 hover:bg-gray-500 text-white rounded-full px-10 py-5 w-full">
+    Zapisz obrazvvvvvvvvv
+  </button>
+</div>
+
+  {/* Right Panel: Instructions (always shown) */}
+  <div className="p-4 flex-grow max-w-md overflow-auto">
+    <div className="text-white text-base leading-relaxed space-y-2">
+      <h2 className="font-semibold text-white">Instrukcja:</h2>
+      <ol className="list-decimal list-inside">
+        <li>Wybierz obraz z komputera</li>
+        <li>Nanieś adnotacje na obraz rysując po nim</li>
+        <li>Dokonaj predykcji przy użyciu przycisku predykcji</li>
+        <li>
+          Przy użyciu przycisku własny model możesz załadować na serwer własny
+          model (musi zgadzać się on z dokumentacją)
+        </li>
+        <li>
+          Zapisz obraz za pomocą przycisku. Wyświetli się okienko w którym należy
+          wpisać dane pacjenta.
+        </li>
+        <li>W każdej chwili możesz załadować nowy obraz klikając wybierz plik</li>
+      </ol>
+
+      <div className="mt-4">
+        <h3 className="font-semibold text-white">Skróty klawiszowe</h3>
+        <ul className="list-disc list-inside space-y-1">
+          <li>zoom in - ctrl + z</li>
+          <li>zoom out - ctrl + x</li>
+          <li>undo - ctrl + v</li>
+        </ul>
       </div>
     </div>
+  </div>
+</div>
+
+    
+  </div>
+</div>
+
   );
 };
 

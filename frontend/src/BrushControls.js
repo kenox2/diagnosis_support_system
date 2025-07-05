@@ -85,6 +85,7 @@ const BrushControls = ({ fabricCanvasRef, brushSize, brushColorR, brushColorG, b
           max="100"
           value={brushSize}
           onChange={changeBrushSize}
+          className='w-52'
         />
         <span>{brushSize}px</span> {/* Display the current brush size */}
 
@@ -95,6 +96,7 @@ const BrushControls = ({ fabricCanvasRef, brushSize, brushColorR, brushColorG, b
           max="255"
           value={brushColorR}
           onChange={changeRed}
+          className='w-52'
         />
         <span>{brushColorR} R</span> {/* Display the current brush size */}
 
@@ -105,6 +107,7 @@ const BrushControls = ({ fabricCanvasRef, brushSize, brushColorR, brushColorG, b
           max="255"
           value={brushColorG}
           onChange={changeGreen}
+          className='w-52'
         />
         <span>{brushColorG} G</span> {/* Display the current brush size */}
 
@@ -115,17 +118,14 @@ const BrushControls = ({ fabricCanvasRef, brushSize, brushColorR, brushColorG, b
           max="255"
           value={brushColorB}
           onChange={changeBlue}
+          className='w-52'
         />
         <span>{brushColorB} B</span> {/* Display the current brush size */}
 
         <span
-          className="currentColor"
+          className="inline-block w-5 h-5 border border-black rounded-full relative top-[2px] "
           style={{
-            display: "inline-block",
-            width: "20px",
-            height: "20px",
             backgroundColor: `rgb(${brushColorR}, ${brushColorG}, ${brushColorB})`,
-            border: "1px solid black",
           }}
         ></span>
     </div>
