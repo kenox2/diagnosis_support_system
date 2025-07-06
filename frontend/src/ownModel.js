@@ -14,21 +14,23 @@ const OwnModel = ({setClasses, setModel, isModel, setIsModel}) => {
         setIsModel(event.target.checked);
     };
 
-    return (
-        <div className="chooseModel">
-            <input type="file"  onChange={handleModelUpload} />
-            <input type="file"  onChange={handleClassesUpload} />
-            <label>    
-                <input
-                type="radio"
-                name="example"
-                checked={isModel}
-                onChange={handleChange}
-                />
-                Use custom model
-            </label>
+     return (
+        <div className="flex flex-col space-y-4 w-full">
+        <input type="file" onChange={handleModelUpload} className="border p-2 rounded" />
+        <input type="file" onChange={handleClassesUpload} className="border p-2 rounded" />
+        
+        <label className="flex items-center space-x-2">
+            <input
+            type="radio"
+            name="example"
+            checked={isModel}
+            onChange={handleChange}
+            />
+            <span>Use custom model</span>
+        </label>
         </div>
     );
-}
+};
+
 
 export default OwnModel;

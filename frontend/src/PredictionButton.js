@@ -111,9 +111,7 @@ const PredictionButton = ({ setPredictedImage, uploadedImage, model, classes, is
     };
   
     return (
-    <div>
-      <button onClick={fetchPrediction}>Predict</button>
-    </div>
+      <button className="cursor-pointer bg-gray-400 hover:bg-gray-500 text-white rounded-full px-10 py-5 w-full" onClick={fetchPrediction}>Predykcja</button>
   );
 };
 
