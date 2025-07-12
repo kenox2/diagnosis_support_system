@@ -18,7 +18,9 @@ services:
       context: ./frontend
     image: client-app
     environment:
-      REACT_APP_API_URL: "http://java-backend:8080"
+      REACT_APP_API_URL: "http://localhost:8080"
+    ports:
+      - 3000:80
     networks:
       - sys-network
 
@@ -26,10 +28,14 @@ services:
     build:
       context: ./backend/REST_API
     image: java-backend
+    ports:
+     - 8080:8080
     environment:
       DB_HOST: db 
       DB_USER: root
       DB_PASS: root
+      PY_BACKEND: http://python-backend:5001
+      FRONTEND_ORIGIN: "http://localhost:3000"
     networks:
       - sys-network
 
