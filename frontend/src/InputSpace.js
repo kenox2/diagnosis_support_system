@@ -1,3 +1,4 @@
+import config from './config';
 const InputSpace = ({ fabricCanvasRef, firstNameRef, lastNameRef, ageRef, descriptionRef }) => {
 
 
@@ -26,7 +27,7 @@ const InputSpace = ({ fabricCanvasRef, firstNameRef, lastNameRef, ageRef, descri
       formData.append("age", age); // Convert age to a string for FormData
       let token = localStorage.getItem('token');
       // Send the request
-      fetch("http://localhost:8080/api/uploads/images", {
+      fetch(`${config.API_BASE_URL}/api/uploads/images`, {
           headers: {
             "Authorization": `Bearer ${token}`,
           },

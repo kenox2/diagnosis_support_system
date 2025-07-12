@@ -1,4 +1,5 @@
 import { fabric } from 'fabric';
+import config from './config';
 const InputImage = ({fabricCanvasRef, setUploadedImage, setImageFile}) => {
     var handleImageUpload = (e) => {
         var file = e.target.files[0];
@@ -46,7 +47,7 @@ const InputImage = ({fabricCanvasRef, setUploadedImage, setImageFile}) => {
     
           // Send the request with the FormData
           let token = localStorage.getItem('token')
-          fetch('http://localhost:8080/api/uploads/images_temp', {
+          fetch(`${config.API_BASE_URL}/api/uploads/images_temp`, {
             method: 'POST',
             headers: {
               "Authorization": `Bearer ${token}`,

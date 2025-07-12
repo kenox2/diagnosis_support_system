@@ -1,0 +1,49 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:9.3.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: inz
+    networks:
+      - sys-network
+    volumes:
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+      - sys-db:/var/lib/mysql
+
+  client-app:
+    build:
+      context: ./frontend
+    image: client-app
+    environment:
+      REACT_APP_API_URL: "http://java-backend:8080"
+    networks:
+      - sys-network
+
+  java-backend:
+    build:
+      context: ./backend/REST_API
+    image: java-backend
+    environment:
+      DB_HOST: db 
+      DB_USER: root
+      DB_PASS: root
+    networks:
+      - sys-network
+
+
+  python-backend:
+    build:
+      context: ./backend/model_API
+    image: python-backend
+    networks:
+      - sys-network
+
+
+volumes:
+    sys-db:
+  
+networks:
+    sys-network:

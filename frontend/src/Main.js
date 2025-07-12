@@ -144,7 +144,7 @@ var DrawingCanvas = () => {
               ref={canvasRef}
               style={{
                 border: '1px solid black',
-                visibility: imageFile ? 'visible' : 'hidden',
+                
               }}
             ></canvas>
           </div>
@@ -163,6 +163,7 @@ var DrawingCanvas = () => {
               classes={classes}
               isModel={isModel}
               imageFile={imageFile}
+              setShowPredictionPopup={setShowPredictionPopup}
               fabricCanvasRef={fabricCanvasRef}
             />
             <button onClick={() => setShowModelPopup(true)} className="cursor-pointer bg-gray-400 hover:bg-gray-500 text-white rounded-full px-10 py-5 w-full">
@@ -196,14 +197,20 @@ var DrawingCanvas = () => {
           </div>
 
           {/* Prediction Popup */}
-          {predictedImage && (
+
+          {showPredictionPopup && (
             <Draggable>
-              <div className="fixed top-20 right-10 w-96 h-80 bg-white shadow-lg rounded-lg p-6 flex flex-col z-50 cursor-move">
-                <div className="flex justify-between items-center mb-4">
+              <div className="fixed top-20 right-10 bg-white shadow-lg rounded-lg p-4 z-50 cursor-move">
+                <div className="flex justify-between items-center mb-2">
                   <h3 className="text-lg font-bold">Wynik predykcji</h3>
                   <button onClick={() => setShowPredictionPopup(false)} className="text-red-500 font-bold">X</button>
                 </div>
-                <img src="/predicted.jpg" alt="Prediction Result" className="w-full h-full object-contain" />
+                <img
+                  src={predictedImage}
+                  alt="Prediction Result"
+                  className="object-contain"
+                  style={{ maxWidth: '90vw', maxHeight: '80vh' }}
+                />
               </div>
             </Draggable>
           )}

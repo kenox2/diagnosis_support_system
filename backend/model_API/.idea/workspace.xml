@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f4c86e23-f8be-45ac-b9ca-aff405f4a827" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../REST_API/src/main/java/com/pwr/inz/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../REST_API/src/main/java/com/pwr/inz/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../REST_API/src/main/java/com/pwr/inz/service/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../REST_API/src/main/java/com/pwr/inz/service/TokenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../REST_API/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../REST_API/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../model API/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../model API/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../model API/.idea/model API.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../model API/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../model API/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../model API/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../model API/best.pt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../model API/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/src/InputImage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/src/InputImage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/src/InputSpace.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/src/InputSpace.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/src/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/src/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/src/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/src/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/src/PredictionButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/src/PredictionButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/src/search_page.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/src/search_page.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2vUkB5Xi88oxvK1EvpZUmOMf1dP" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "styling__branch",
+    "last_opened_file_path": "D:/supportive_system_frontend/diagnosis_support_system/backend/model_API",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\system_diag\backend\model API" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f4c86e23-f8be-45ac-b9ca-aff405f4a827" name="Changes" comment="" />
+      <created>1744206906182</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744206906182</updated>
+    </task>
+    <servers />
+  </component>
+</project>
