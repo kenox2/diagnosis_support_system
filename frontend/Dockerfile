@@ -8,9 +8,7 @@ RUN npm install
 
 COPY . .
 
-RUN npm run build
-
-EXPOSE 3000
+RUN REACT_APP_API_URL=http://16.171.234.51:8080 npm run build
 
 
 FROM nginx:stable-alpine3.21 AS prod
