@@ -1,7 +1,6 @@
 package com.pwr.inz.controller;
 
 import com.pwr.inz.service.AuthService;
-import com.pwr.inz.service.ImagesService;
 import com.pwr.inz.service.TokenService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,7 @@
  import React, { useState } from "react";
  import ScrollableExpandableList from "./ExpandableList";
 import SearchBar from "./SearchBar";
+import config from './config';
 
 
 
@@ -25,7 +26,7 @@ import SearchBar from "./SearchBar";
       try {
         // Send a GET request to your backend search endpoint
         let token = localStorage.getItem('token')
-        const response = await fetch(`http://localhost:8080/api/search/get?query=${encodeURIComponent(searchStatement)}`,
+        const response = await fetch(`${config.API_BASE_URL}/api/search/get?query=${encodeURIComponent(searchStatement)}`,
         {
           method: 'GET',
           headers: {
@@ -45,7 +46,7 @@ import SearchBar from "./SearchBar";
           id: item.id,
           title: item.name, 
           description: item.description,
-          image: "http://localhost:8080"+item.imageUrl 
+          image: `${config.API_BASE_URL}${item.imageUrl}`
         }));
         console.log(formattedItems);
   

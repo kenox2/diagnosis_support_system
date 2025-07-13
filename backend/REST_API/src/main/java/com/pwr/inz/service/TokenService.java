@@ -4,6 +4,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.SignatureException;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,10 @@ public class TokenService {
     @Value("${SECRET_KEY}")
     private String secretKey;
     private static final long EXPIRATION_TIME = 3600000L;
+    @PostConstruct
+    public void debugSecretKey() {
+        System.out.println("TokenService initialized. secretKey = " + secretKey);
+    }
     public String generateToken(String username) {
         return Jwts.builder()
                 .setSubject(username)  // You can include other user data here

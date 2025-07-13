@@ -1,11 +1,13 @@
 import React from 'react';
 import { fabric } from 'fabric';
+import config from './config';
 
-const PredictionButton = ({ setPredictedImage, uploadedImage, model, classes, isModel, imageFile, fabricCanvasRef }) => {
+const PredictionButton = ({ setPredictedImage, uploadedImage, model, classes, isModel, imageFile, fabricCanvasRef, setShowPredictionPopup}) => {
  
   
   
   const fetchPrediction = async () => {
+        setShowPredictionPopup(true)
         if (!uploadedImage) {
             console.log('No image uploaded to predict!');
             return;
@@ -27,7 +29,7 @@ const PredictionButton = ({ setPredictedImage, uploadedImage, model, classes, is
             
             try{ 
               // Send the request with the FormData
-              var response = await fetch('http://localhost:8080/api/uploads/predict/own_model', {
+              var response = await fetch(`${config.API_BASE_URL}/api/uploads/predict/own_model`, {
                 method: 'POST',
                 headers: {
                   "Authorization": `Bearer ${token}`,
@@ -71,7 +73,7 @@ const PredictionButton = ({ setPredictedImage, uploadedImage, model, classes, is
           }
           else{
             try {
-              const response = await fetch('http://localhost:8080/api/uploads/images/'+ uploadedImage, {
+              const response = await fetch(`${config.API_BASE_URL}/api/uploads/images/${uploadedImage}`, {
                 method: 'GET',
                 headers: {
                   "Authorization": `Bearer ${token}`,
@@ -111,9 +113,7 @@ const PredictionButton = ({ setPredictedImage, uploadedImage, model, classes, is
     };
   
     return (
-    <div>
-      <button onClick={fetchPrediction}>Predict</button>
-    </div>
+      <button className="cursor-pointer bg-gray-400 hover:bg-gray-500 text-white rounded-full px-10 py-5 w-full" onClick={fetchPrediction} >Predykcja</button>
   );
 };
 

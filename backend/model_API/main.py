@@ -1,4 +1,4 @@
-import keras.src.saving
+# import keras.src.saving
 from flask import Flask, request, jsonify, send_file
 from PIL import Image
 import io
@@ -9,9 +9,9 @@ import os
 import tempfile
 import cv2
 import torchvision.transforms as T
+import ultralytics
 
-
-
+print(ultralytics.__version__)
 app = Flask(__name__)
 
 
@@ -29,9 +29,9 @@ def annotate_image(igg, boxes, labels, scores, class_names):
 
 
 def load_model(file_path, file_type):
-    if file_type == 'h5' or file_type == 'tf':
-        return keras.src.saving.load_model(file_path)
-    elif file_type == 'pth':
+    # if file_type == 'h5' or file_type == 'tf':
+    #     return keras.src.saving.load_model(file_path)
+    if file_type == 'pth':
         return torch.load(file_path)
     else:
         raise ValueError("Unsupported file type")
@@ -40,11 +40,11 @@ def load_model(file_path, file_type):
 def preprocess_image(image, model_type):
     # Convert the image to RGB (if not already) and preprocess accordingly
     image = Image.open(image).convert("RGB")
-    if model_type == 'keras':
-        image = image.resize((224, 224))  # Example resizing for Keras models
-        image_array = np.array(image) / 255.0
-        return np.expand_dims(image_array, axis=0)
-    elif model_type == 'pytorch':
+    # if model_type == 'keras':
+    #     image = image.resize((224, 224))  # Example resizing for Keras models
+    #     image_array = np.array(image) / 255.0
+    #     return np.expand_dims(image_array, axis=0)
+    if model_type == 'pytorch':
         image_tensor = torch.torch.to_tensor(image).unsqueeze(0)  # Add batch dimension
         return image_tensor
     else:

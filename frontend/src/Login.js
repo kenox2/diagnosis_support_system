@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import UsernameInput from './UsernameInput';
 import PasswordInput from './PasswordInput';
 import { Navigate } from 'react-router-dom';
+import config from './config';
 
 function Login(){
     const [userName, setUserName] = useState("");
@@ -17,7 +18,7 @@ function Login(){
         formData.append('password', pass);
         try {
             // Fetch request to login endpoint
-            const res = await fetch('http://localhost:8080/api/auth/login', {
+            const res = await fetch(`${config.API_BASE_URL}/api/auth/login`, {
                 method: 'POST',
                 body: formData
             });

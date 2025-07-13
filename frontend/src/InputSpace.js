@@ -1,3 +1,4 @@
+import config from './config';
 const InputSpace = ({ fabricCanvasRef, firstNameRef, lastNameRef, ageRef, descriptionRef }) => {
 
 
@@ -26,7 +27,7 @@ const InputSpace = ({ fabricCanvasRef, firstNameRef, lastNameRef, ageRef, descri
       formData.append("age", age); // Convert age to a string for FormData
       let token = localStorage.getItem('token');
       // Send the request
-      fetch("http://localhost:8080/api/uploads/images", {
+      fetch(`${config.API_BASE_URL}/api/uploads/images`, {
           headers: {
             "Authorization": `Bearer ${token}`,
           },
@@ -63,24 +64,28 @@ const InputSpace = ({ fabricCanvasRef, firstNameRef, lastNameRef, ageRef, descri
 
 
   return (
-    <div className="inputSpace">
-            <label htmlFor="fname">Imię:</label>
-            <input type="text" id="fname" name="fname" ref={firstNameRef} />
+     <div className="flex flex-col space-y-3 w-full">
+          <label htmlFor="fname">Imię:</label>
+          <input id="fname" ref={firstNameRef} className="border p-2 rounded w-full" />
 
-            <label htmlFor="lname">Nazwisko:</label>
-            <input type="text" id="lname" name="lname" ref={lastNameRef} />
+          <label htmlFor="lname">Nazwisko:</label>
+          <input id="lname" ref={lastNameRef} className="border p-2 rounded w-full" />
 
-            <label htmlFor="age">Wiek:</label>
-            <input type="number" id="age" name="age" ref={ageRef} />
+          <label htmlFor="age">Wiek:</label>
+          <input type="number" id="age" ref={ageRef} className="border p-2 rounded w-full" />
 
-            <label htmlFor="desc">Opis:</label>
-            <textarea id="desc" name="desc" ref={descriptionRef}></textarea>
-            <button className='saveButton' onClick={saveCanvas}>Save Image</button>
-            
-            
-    </div>
-  )
-}
+          <label htmlFor="desc">Opis:</label>
+          <textarea id="desc" ref={descriptionRef} className="border p-2 rounded resize-none w-full h-24" />
+
+          <button
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            onClick={() => saveCanvas(fabricCanvasRef, firstNameRef, lastNameRef, ageRef, descriptionRef)}
+          >
+            Zapisz obraz
+    </button>
+  </div>
+  );
+};
 export default InputSpace;
 
 
