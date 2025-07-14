@@ -97,29 +97,21 @@ volumes:
 
 ## 🚀 Deployment on AWS EC2
 
-1. **Push Docker images** to a registry  
-2. **Launch an EC2 instance** and install Docker & Docker Compose  
-3. **Clone the repo** onto the EC2 host:
-  ```bash
-  git clone <your-repo-url>
-  cd <project-root>
-   ```  
-5. **Modify environment variables** in docker-compose.yml and any Dockerfiles as needed to reflect your deployment settings (e.g., database credentials, backend URLs, secret keys).
-   ```bash
-   docker-compose up -d
-   ```  
-6. **Access the app** at `http://<EC2_PUBLIC_IP>/` and API at `http://<EC2_PUBLIC_IP>:8080/`
+This project was successfully containerized using Docker and deployed on an AWS EC2 instance for testing and demonstration purposes. The system runs as three main services (frontend, Java backend, Python inference) orchestrated with Docker Compose, with Nginx serving the frontend on port 80.
 
-> For demo and learning purposes—**not production‑hardened**.
+All services were connected and verified live on EC2—accessing the frontend, invoking backend APIs, and receiving AI predictions from the inference model.
+
+![](https://github.com/kenox2/diagnosis_support_system/blob/main/readme_files/App_without.png)
+![](https://github.com/kenox2/diagnosis_support_system/blob/main/readme_files/App_with.png)
 
 ---
 
 ## 🛠 Tech Stack
 
 - **Frontend:** React.js, Nginx  
-- **API:** Java Spring Boot, JWT, MySQL  
-- **Inference:** Python Flask, YOLO, OpenAI CLIP  
-- **Orchestration:** Docker, Docker Compose  
+- **API:** Java Spring Boot, MySQL  
+- **Inference:** Python Flask, YOLO
+- **Orchestration:** Docker
 - **Cloud:** AWS EC2  
 
 ---
