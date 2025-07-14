@@ -18,7 +18,7 @@ services:
       context: ./frontend
     image: client-app     
     ports:
-      - 3000:80
+      - 80:80
     networks:
       - sys-network
 
@@ -33,7 +33,7 @@ services:
       DB_USER: root
       DB_PASS: root
       PY_BACKEND: http://python-backend:5001
-      FRONTEND_ORIGIN: "http://localhost:3000"
+      FRONTEND_ORIGIN: "http://localhost"
     networks:
       - sys-network
 
